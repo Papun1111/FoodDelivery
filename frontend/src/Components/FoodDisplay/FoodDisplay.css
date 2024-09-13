@@ -1,0 +1,39 @@
+.food-display {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .food-display h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    animation: fadeInDown 1s ease;
+  }
+  
+  .food-display-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .food-display-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

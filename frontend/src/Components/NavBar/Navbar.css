@@ -1,0 +1,94 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff7e50, #ff6348, #ff4500);
+    color: white;
+  }
+  
+  .nav h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navbar-menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s;
+  }
+  
+  .navbar-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    left: 50%;
+    bottom: -8px;
+    transition: width 0.3s, left 0.3s;
+  }
+  
+  .navbar-menu a:hover,
+  .navbar-menu a.active {
+    color: #ffe0ac;
+  }
+  
+  .navbar-menu a:hover::after,
+  .navbar-menu a.active::after {
+    width: 100%;
+    left: 0;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .navbar-right img {
+    width: 30px;
+    height: auto;
+  }
+  
+  .navbar-search-icon {
+    position: relative; /* Set to relative to position the dot absolutely relative to this div */
+    display: flex;
+    align-items: center;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #fa5252;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px; /* Position adjusted to appear above the basket icon */
+    right: 0;
+  }
+  
+  button {
+    background: #ff8c00;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #e85d04;
+  }
+  
