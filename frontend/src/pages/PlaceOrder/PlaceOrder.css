@@ -1,0 +1,124 @@
+/* PlaceOrder.css */
+.place-order {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #FFFAF0; /* Light orangish-white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .place-order-left,
+  .place-order-right {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .place-order-left {
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+  }
+  
+  .place-order-right {
+    padding-left: 20px;
+  }
+  
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .multi-fields {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #ff7e5f; /* Color from the gradient */
+    box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+    outline: none;
+  }
+  
+  .cart-total {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-total-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+  .cart-total-details b {
+    font-weight: bold;
+  }
+  
+  button {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    transform: scale(1.05);
+  }
+  
+  .cart-promocode {
+    margin-top: 20px;
+  }
+  
+  .cart-promocode p {
+    margin: 0;
+  }
+  
+  .cart-promocode-input {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .cart-promocode-input input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .cart-promocode-input button {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cart-promocode-input button:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    transform: scale(1.05);
+  }
+  
