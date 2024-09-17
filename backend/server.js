@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import { connectDb } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
 
 //app config
 const app=express();
@@ -11,6 +12,8 @@ app.use(express.json());
 app.use(cors());
 //db connection
 connectDb();
+//api endpoint
+app.use("/api/food",foodRouter);
 app.get("/",(req,res)=>{
     res.send("hello world");
 })
