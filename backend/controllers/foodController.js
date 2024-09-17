@@ -11,5 +11,13 @@ const food=new foodModel({
     category:req.body.category,
     image:image_filename
 })
+try{
+    await food.save();
+    res.json({success:true,message:"Food added"});
+}
+catch(err){
+console.log(err);
+res.json({success:false,message:"Food not added"});
+}
 }
 export {addFood};
