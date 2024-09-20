@@ -3,8 +3,7 @@ import "./Add.css"
 import { assets } from '../../assets/assets'
 import axios from "axios"
 import { toast } from 'react-toastify'
-const Add = () => {
-  const url="http://localhost:4000";
+const Add = ({url}) => {
     const [image,setImage]=useState(false);
     const [data,setData]=useState({name:"",
       description:"",
@@ -21,7 +20,7 @@ event.preventDefault();
 const formData=new FormData();
 formData.append("name",data.name);
 formData.append("description",data.description);
-formData.append("price",Number(data.price));
+formData.append("price",data.price);
 formData.append("category",data.category);
 formData.append("image",image);
 
@@ -73,7 +72,7 @@ toast.error("response.data.message");
             </div>
             <div className="add-price flexx-col">
                 <p>Product Price</p>
-                <input type='number' onChange={onChangeHandler}  name=' price' />
+                <input type='number' onChange={onChangeHandler}  name='price' />
             </div>
         </div>
         <button type='submit' className='add button'>Add</button>
