@@ -32,7 +32,8 @@ const listFood = async (req, res) => {
 const removeFood = async (req, res) => {
   try {
     const { id } = req.params;
-    await foodModel.findByIdAndDelete(id);
+    const food= await foodModel.findByIdAndDelete(id);
+    fs.unlink(`uploads/${food.image}`,()=>{});
     res.json({ success: true,message: "Succesfull" });
   } catch (err) {
     console.log(e);
