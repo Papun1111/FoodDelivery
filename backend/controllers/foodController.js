@@ -20,13 +20,24 @@ const addFood = async (req, res) => {
   }
 };
 //all food list
-const listFood=async(req,res)=>{
-try{
-const foods=await foodModel.find({});
-res.json({success:true,data:foods});
-}catch(e){
-console.log(e);
-res.json({success:true,message:"Error"});
-}
-}
-export { addFood,listFood };
+const listFood = async (req, res) => {
+  try {
+    const foods = await foodModel.find({});
+    res.json({ success: true, data: foods });
+  } catch (e) {
+    console.log(e);
+    res.json({ success: true, message: "Error" });
+  }
+};
+const removeFood = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await foodModel.findByIdAndDelete(id);
+    res.json({ success: true });
+  } catch (err) {
+    console.log(e);
+    res.json({ success: true, message: "Error" });
+  }
+};
+
+export { addFood, listFood, removeFood };
