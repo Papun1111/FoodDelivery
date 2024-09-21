@@ -5,14 +5,30 @@ import validator from "validator"
 import dotenv from "dotenv"
 dotenv.config();
 // login user
-const JWT_SECRET = 'your_secret_key_here';
+const secret = process.env.JWT_SECRET;
 const createToken=(id)=>{
-    return jwt.sign({ id },JWT_SECRET, { expiresIn: '1d' });
+    return jwt.sign({ id },secret, { expiresIn: '1d' });
 }
 
 
 const loginUser=async(req,res)=>{
-
+const {email,password}=req.body;
+try{
+const user=await userModel.findOne({email});
+if(!user){
+    return res.json({success:false,message:"user does not exist"});    
+}
+const isMatch=await bcrypt.compare(password,user.password);
+if(!isMatch){
+    return res.json({success:false,message:"Invalid crendentials"})
+}
+const token=createToken(user._id);
+res.json({success:true,token});
+}
+catch(e){
+console.log(e);
+res.json({success:false,message:"Error while logging in"});
+}
 }
 
 const registerUser=async(req,res)=>{
