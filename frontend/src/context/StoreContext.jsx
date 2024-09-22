@@ -1,26 +1,27 @@
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
+import axios from "axios";
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-const url="http://localhost:4000";
-const [token,setToken]=useState("");
+  const url = "http://localhost:4000";
+  const [token, setToken] = useState("");
+  const [food_list, setFoodList] = useState([]);
+
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
       ...prev,
-      [itemId]: prev[itemId] ? prev[itemId] + 1 : 1,
+      [itemId]: (prev[itemId] || 0) + 1,
     }));
   };
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => {
-      // Ensure we don't go below 0 or remove an item not in the cart
       if (!prev[itemId]) return prev;
+
       const updatedCart = { ...prev, [itemId]: prev[itemId] - 1 };
 
-      // Remove the item from the cart if the count is 0
       if (updatedCart[itemId] <= 0) {
         delete updatedCart[itemId];
       }
@@ -30,15 +31,33 @@ const [token,setToken]=useState("");
   };
 
   const getTotalCartAmount = () => {
-    let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product._id === item);
-        totalAmount += itemInfo.price * cartItems[item];
-      }
-    }
-    return totalAmount;
+    return Object.keys(cartItems).reduce((total, itemId) => {
+      const itemInfo = food_list.find((product) => product._id === itemId);
+      return itemInfo ? total + itemInfo.price * cartItems[itemId] : total;
+    }, 0);
   };
+
+  const fetchFoodList = async () => {
+    try {
+      const response = await axios.get(`${url}/api/food/list`);
+      setFoodList(response.data.data);
+    } catch (error) {
+      console.error("Error fetching food list:", error);
+    }
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      await fetchFoodList();
+    };
+
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+
+    loadData();
+  }, []);
 
   const contextValue = {
     food_list,
@@ -49,7 +68,7 @@ const [token,setToken]=useState("");
     getTotalCartAmount,
     url,
     token,
-    setToken
+    setToken,
   };
 
   return (

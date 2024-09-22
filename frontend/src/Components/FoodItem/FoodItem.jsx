@@ -4,12 +4,12 @@ import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart,url } = useContext(StoreContext);
 
   return (
     <div className="food-item">
       <div className="food-item-img-container">
-        <img className="food-item-image" src={image} alt={name} />
+        <img className="food-item-image" src={url+"/images/"+image} alt={name} />
         {!cartItems[id] ? (
           <img
             className="add"
@@ -39,7 +39,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
           <img src={assets.rating_starts} alt="Rating" />
         </div>
         <p className="food-item-desc">{description}</p>
-        <p className="food-item-price">${price.toFixed(2)}</p> {/* Ensure two decimal places */}
+        <p className="food-item-price">${price}</p> {/* Ensure two decimal places */}
       </div>
     </div>
   );

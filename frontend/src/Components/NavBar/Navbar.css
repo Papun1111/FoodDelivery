@@ -91,4 +91,50 @@
   button:hover {
     background: #e85d04;
   }
-  
+  .navbar-profile {
+    position: relative; /* Allows positioning of the dropdown */
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Change cursor to indicate it's interactive */
+}
+
+.navbar-profile img {
+    width: 30px; /* Consistent with other icons */
+    height: auto;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.nav-profile-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 40px; /* Adjust according to your layout */
+    right: 0; /* Aligns dropdown to the right */
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent for contrast */
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensures it appears above other elements */
+    width: 150px; /* Set a fixed width */
+    padding: 10px 0; /* Padding for dropdown */
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px; /* Space around items */
+    cursor: pointer; /* Indicate interactivity */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+.nav-profile-dropdown li:hover {
+    background: #f0f0f0; /* Highlight on hover */
+}
+
+.nav-profile-dropdown img {
+    width: 20px; /* Smaller icon size for dropdown */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Show dropdown on hover over navbar-profile */
+.navbar-profile:hover .nav-profile-dropdown {
+    display: block; /* Show dropdown */
+}
