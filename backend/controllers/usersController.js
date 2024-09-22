@@ -42,9 +42,9 @@ const registerUser=async(req,res)=>{
     if(!validator.isEmail(email)){
         return res.json({success:false,message:"Please enter valid email"});
     }
-    if(password.length<8){
-        return res.json({success:false,message:"Please enter strong password"});
-    }
+    // if(password.length<8){
+    //     return res.json({success:false,message:"Please enter strong password"});
+    // }
     //hashing user password
     const salt=await bcrypt.genSalt(10);
     const hashedPassword=await bcrypt.hash(password,salt);
