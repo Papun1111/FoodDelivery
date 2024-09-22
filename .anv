@@ -1,0 +1,3 @@
+MONGO_URL=mongodb+srv://gohanmohapatra:iloveyou123@pamotra.1xy2l.mongodb.net/Food_delivery?retryWrites=true&w=majority&appName=Pamotra
+JWT_SECRET=your_rand
+STRIPE_SECRET_KEY=sk_test_51Q1phpFt3aFuTob0CUoSChNh5r18eH4twlLBkNLuWtnzps9l0rrexiWpFgVVehTOEcwxl65HFmsayrlNy54KCfrW00D6GwxKcs
