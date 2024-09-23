@@ -72,6 +72,7 @@ newUrl+="/api/user/login"
             type="password"
             onchange={onChangeHandler}
             name="password"
+            placeholder="enter password"
             required
           />
           <button type="submit">

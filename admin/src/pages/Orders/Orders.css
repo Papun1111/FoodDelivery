@@ -1,0 +1,125 @@
+/* Base Styles */
+.order {
+    padding: 20px;
+    background: #fff5e6; /* Very light orange background for overall compatibility */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .order h3 {
+    color: #ff6348; /* Soft reddish-orange */
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .order-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(to right, #ffffff, #ffe0b2); /* Subtle gradient */
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .order-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .order-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .order-item img:hover {
+    transform: scale(1.1);
+  }
+  
+  .order-item-food, .order-item-name, .order-item-address, .order-item-city, .order-item-state, .order-item-phone {
+    margin: 0;
+    color: #333;
+  }
+  
+  .order-item select {
+    padding: 8px 12px;
+    border: none;
+    background-color: #ff7f50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-item select:hover {
+    background-color: #ff6347;
+  }
+  
+  .order-item select option {
+    background: white;
+    color: #333;
+  }
+  
+  /* Media Queries for Responsive Adjustments */
+  @media (max-width: 768px) {
+    .order h3 {
+      font-size: 20px;
+    }
+  
+    .order-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .order-item img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .order {
+      padding: 15px;
+    }
+  
+    .order h3 {
+      font-size: 18px;
+    }
+  
+    .order-item {
+      padding: 10px;
+    }
+  
+    .order-item img {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .order-item-food, .order-item-name, .order-item-address, .order-item-city, .order-item-state, .order-item-phone {
+      font-size: 14px; /* Adjust text size for better readability on small screens */
+    }
+  
+    .order-item select {
+      padding: 6px 10px; /* Smaller select element to fit the layout */
+    }
+  }
+  
+  /* Ensuring large touch targets for interactive elements */
+  @media (max-width: 360px) {
+    .order-item select {
+      width: 100%; /* Full width for easier interaction */
+    }
+  }
+  

@@ -32,7 +32,7 @@ const placeOrder = async (req, res) => {
         product_data: {
           name: "Delivery Charges",
         },
-        unit_amount: 2 * 100 * 100,
+        unit_amount: 2 * 100,
       },
       quantity: 1,
     });
@@ -53,11 +53,49 @@ const placeOrder = async (req, res) => {
 const verifyOrder=async (req,res) => {
   const {orderId,success}=req.body;
   try{
-
+if(success=="true"){
+await orderModel.findByIdAndUpdate(orderId,{payment:true});
+res.json({success:true,message:"paid"});
+}else{
+  await orderModel.findByIdAndDelete(orderId);
+  res.json({success:false,message:"not paid"});
+}
   }
   catch(e){
-    
+    console.log(e);
+    res.json({success:false,message:"Error"});
   }
 }
 
-export { placeOrder,verifyOrder };
+const usersOrder=async(req,res)=>{
+try{
+const orders=await orderModel.find({userId:req.body.userId});
+res.json({success:true,data:orders});
+}
+catch(e){
+console.error(e);
+res.json({success:false,message:"Error"});
+}
+}
+//fetch all orders for admin panel
+const listOrders=async(req,res)=>{
+try{
+const orders=await orderModel.find({});
+res.json({success:true,data:orders});
+}catch(e){
+  res.json({success:true,message:"Error"});
+}
+}
+//api for status
+const updateStatus=async(req,res)=>{
+try{
+await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status});
+res.json({success:true,message:"Status updated!"})
+}
+catch(e){
+console.error(e);
+res.json({success:false,message:"Status not updated!"})
+
+}
+}
+export { placeOrder,verifyOrder,usersOrder,listOrders,updateStatus };
