@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-
+import uri from "../../environment";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "https://fooddelivery-5wc2.onrender.com";
+  const url = uri.deployment;
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
 
