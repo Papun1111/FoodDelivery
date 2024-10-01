@@ -3,20 +3,20 @@
     font-family: 'Arial', sans-serif; /* Improved font */
     color: #333; /* Dark grey text */
     background-color: #fff; /* White background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    padding: 1.25rem; /* Using 'rem' for scalable padding */
+    border-radius: 0.5rem; /* Relative border radius */
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1); /* Soft shadow for depth */
 }
 
 /* Heading */
 .explore-menu h1 {
     color: #2a9d8f; /* Teal heading */
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 /* Descriptive text */
 .explore-menu-text {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     line-height: 1.6;
     color: #555; /* Light grey text for subtle contrast */
 }
@@ -24,15 +24,15 @@
 /* List container with custom scrollbar */
 .explore-menu-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Smaller items */
-    gap: 15px;
-    margin-bottom: 20px;
-    overflow-y: auto; /* Enables scrolling */
-    max-height: 400px; /* Fixed height to trigger scrollbar */
+    grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr)); /* Responsive grid */
+    gap: 0.9375rem;
+    margin-bottom: 1.25rem;
+    overflow-y: auto;
+    max-height: 25rem; /* Using 'rem' for scalability */
 
     /* Scrollbar styling */
     ::-webkit-scrollbar {
-        width: 8px;
+        width: 0.5rem;
     }
 
     ::-webkit-scrollbar-track {
@@ -41,7 +41,7 @@
 
     ::-webkit-scrollbar-thumb {
         background-color: #2a9d8f;
-        border-radius: 4px;
+        border-radius: 0.25rem;
     }
 
     ::-webkit-scrollbar-thumb:hover {
@@ -56,19 +56,19 @@
 }
 
 .explore-menu-item img {
-    width: 90%; /* Reduced size */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 90%; /* Percentage width for responsiveness */
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoother transitions */
 }
 
 .explore-menu-item img:hover {
     transform: scale(1.1); /* More noticeable zoom */
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* Deeper shadow on hover */
+    box-shadow: 0 0.3125rem 0.625rem rgba(0,0,0,0.2); /* Deeper shadow on hover */
 }
 
 .explore-menu-item p {
-    margin-top: 8px;
+    margin-top: 0.5rem;
     font-weight: bold;
     color: #264653; /* Consistent text color */
 }
@@ -76,10 +76,18 @@
 /* Horizontal rule styling */
 hr {
     border-color: #ccc;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
+
 .explore-menu-item .active {
     transform: scale(1.1); /* Slightly larger to highlight */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* More pronounced shadow */
-    border: 2px solid #2a9d8f; /* Teal border for consistency with the theme */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3); /* More pronounced shadow */
+    border: 0.125rem solid #2a9d8f; /* Teal border for consistency with the theme */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+    .explore-menu-list {
+        grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); /* Smaller grid items on mobile */
+    }
 }

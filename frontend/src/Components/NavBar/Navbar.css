@@ -138,3 +138,76 @@
 .navbar-profile:hover .nav-profile-dropdown {
     display: block; /* Show dropdown */
 }
+
+/* Existing Styles */
+
+
+/* Add Responsive Styles */
+@media (max-width: 768px) {
+  .nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .nav h1 {
+      margin-bottom: 10px; /* Space between logo and menu */
+  }
+
+  .navbar-menu {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 0;
+  }
+
+  .navbar-menu a {
+      font-size: 16px; /* Smaller font size for mobile */
+  }
+
+  .navbar-right {
+      order: -1; /* Move search and cart icons above on small screens */
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 10px;
+  }
+
+  .navbar-profile {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+  }
+
+  .nav-profile-dropdown {
+      width: 100%; /* Full-width dropdown */
+      top: 60px; /* Adjust position relative to new navbar layout */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+      padding: 10px 20px;
+  }
+
+  .navbar-menu a {
+      font-size: 14px; /* Even smaller font size for very small screens */
+  }
+
+  button {
+      padding: 8px 16px; /* Smaller button padding */
+  }
+}
+
+/* Ensure icons adjust size too */
+.navbar-right img, .nav-profile-dropdown img {
+  width: 25px; /* Smaller icons for mobile */
+}
+
+/* Additional responsiveness for button */
+button {
+  flex-shrink: 0; /* Prevent button from shrinking disproportionately */
+}
+
+/* Responsive adjustments for search and profile icons */
+.navbar-search-icon, .navbar-profile {
+  flex-shrink: 0; /* Ensure these elements maintain size and spacing */
+}
