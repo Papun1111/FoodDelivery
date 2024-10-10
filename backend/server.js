@@ -11,49 +11,16 @@ import "dotenv/config";
 
 // App configuration
 const app = express();
-const port =process.env.PORT || 1111
+const port = process.env.PORT || 1111;
+
 // Middleware
-app.use(express.json());  
-app.use(express.urlencoded({ extended: false }));  
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 // Database connection
 connectDb();
 connectCloudinary();
-//api endpoint
-app.use("/api/food",foodRouter);
-app.use("/images",express.static('uploads'));
-app.use("/api/user",userRouter);
-app.use("/api/cart",cartRouter); 
-app.use("/api/order",orderRouter);
-app.get("/",(req,res)=>{
-    res.send("hello world");
-})
-
-app.listen(port,async()=>{
-    
-    console.log(`listening on port ${port}`);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // API endpoints
 app.use("/api/food", foodRouter);
