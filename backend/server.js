@@ -11,8 +11,7 @@ import "dotenv/config";
 
 // App configuration
 const app = express();
-const port =4000; 
-
+const port =process.env.PORT || 1111
 // Middleware
 app.use(express.json());  
 app.use(express.urlencoded({ extended: false }));  
