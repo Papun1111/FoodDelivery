@@ -7,8 +7,9 @@ import List from './pages/List/List'
 import Orders from './pages/Orders/Orders'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import uri from '../environment'
 const App = () => {
-  const url =`https://fooddelivery-5wc2.onrender.com`;
+  const url =uri.dev;
   return (
     <div>
       <ToastContainer></ToastContainer>
