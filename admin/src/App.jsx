@@ -9,7 +9,7 @@ import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import uri from '../environment'
 const App = () => {
-  const url =uri.dev;
+  const url =uri.deployment;
   return (
     <div>
       <ToastContainer></ToastContainer>
