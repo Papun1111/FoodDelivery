@@ -20,7 +20,6 @@ app.use(cors());
 
 // Database connection
 connectDb();
-<<<<<<< HEAD
 connectCloudinary();
 //api endpoint
 app.use("/api/food",foodRouter);
@@ -56,8 +55,6 @@ app.listen(port,async()=>{
 
 
 
-=======
->>>>>>> bca14b0819e5b482fdf2bcfc9b8bdc7265067f22
 
 // API endpoints
 app.use("/api/food", foodRouter);
