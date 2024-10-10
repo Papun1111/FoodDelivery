@@ -5,17 +5,22 @@ import connectCloudinary from "./config/cloudinary.js";
 import { connectDb } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
-import "dotenv/config"
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
-//app config
-const app=express();
-const port=4000;
-//middleware
-app.use(express.json());
+import "dotenv/config";
+
+// App configuration
+const app = express();
+const port =4000; 
+
+// Middleware
+app.use(express.json());  
+app.use(express.urlencoded({ extended: false }));  
 app.use(cors());
-//db connection
+
+// Database connection
 connectDb();
+<<<<<<< HEAD
 connectCloudinary();
 //api endpoint
 app.use("/api/food",foodRouter);
@@ -51,6 +56,23 @@ app.listen(port,async()=>{
 
 
 
+=======
+>>>>>>> bca14b0819e5b482fdf2bcfc9b8bdc7265067f22
 
+// API endpoints
+app.use("/api/food", foodRouter);
+app.use("/images", express.static('uploads'));
+app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/order", orderRouter);
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
 
+// Server listening with basic error handling
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+}).on('error', (err) => {
+    console.error('Error starting server:', err);
+});
