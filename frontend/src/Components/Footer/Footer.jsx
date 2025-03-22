@@ -1,41 +1,98 @@
-import React from 'react'
-import "./Footer.css"
-import { assets } from '../../assets/assets'
+import React from "react";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <div className='footer' id='footer'>
-      <div className="footer-content">
-        <div className="footer-content-left">
-            <h1>PaMoTra</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero doloremque maiores reiciendis dolorum consequuntur ad modi sint neque. Eius incidunt rerum illum tenetur adipisci cumque excepturi pariatur optio porro harumś?</p>
-            <div className='footer-social-items'>
-              <img src={assets.facebook_icon} alt="" />
-              <img src={assets.twitter_icon} alt="" />
-              <img src={assets.linkedin_icon} alt="" />
-            </div>
+    <div id="footer" className="bg-gray-900 text-white py-10 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+        {/* Left Section */}
+        <div className="md:w-1/3">
+          <h1 className="text-3xl font-bold text-red-500 mb-4">PaMoTra</h1>
+          <p className="text-gray-300">
+            PaMoTra delivers your favorite restaurant dishes straight to your door.
+            Enjoy fast, reliable, and delicious food delivery service designed to satisfy your cravings anytime, anywhere.
+          </p>
+          <div className="flex gap-4 mt-4">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-xl"
+            >
+              <FaFacebookF size={20} />
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-xl"
+            >
+              <FaTwitter size={20} />
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-xl"
+            >
+              <FaLinkedinIn size={20} />
+            </a>
+          </div>
         </div>
-        <div className="footer-content-center">
-          <h2>Company</h2>
-          <ul>
-            <li>Home</li>
-            <li>About us</li>
-            <li>Delivery</li>
-            <li>Privacy</li>
+
+        {/* Center Section */}
+        <div className="md:w-1/3">
+          <h2 className="text-xl font-semibold mb-4">Company</h2>
+          <ul className="space-y-2">
+            <li>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out"
+              >
+                About Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out"
+              >
+                Delivery
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out"
+              >
+                Privacy
+              </a>
+            </li>
           </ul>
         </div>
-        <div className="footer-content-right">
-          <h2>GET IN TOUCH</h2>
-          <ul>
-            <li>+91 7008939577</li>
-            <li>gohanmohapatra@gmail.com</li>
+
+        {/* Right Section */}
+        <div className="md:w-1/3">
+          <h2 className="text-xl font-semibold mb-4">Get In Touch</h2>
+          <ul className="space-y-2">
+            <li className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
+              +91 7008939577
+            </li>
+            <li className="text-gray-300 hover:text-red-500 transition duration-300 ease-in-out">
+              gohanmohapatra@gmail.com
+            </li>
           </ul>
         </div>
       </div>
-      <hr />
-      <p className="footer-copyright">© 2024 PaMotra. All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
+      <hr className="my-8 border-gray-700" />
+      <p className="text-center text-gray-500 text-sm">
+        © 2025 PaMoTra. All rights reserved. No part of this publication may be reproduced,
+        distributed, or transmitted in any form or by any means without prior written permission.
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
